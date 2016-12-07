@@ -1055,7 +1055,7 @@ class Todos
 		tomorrow = []
 		someOtherDay = []
 
-		separator = "\n----------------------------------------------------------------------------------------------------\n"
+		separator = "\n\n"
 		line_separator = "\n\n"
 		
 
