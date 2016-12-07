@@ -1157,11 +1157,11 @@ class Todos
 				desc_length = msg["description"].length
 			if desc_length > 0
 				task_string.push("*"+index+".  "+msg["description"]+"*\n")
-				task_string.push("      due: "+msg["date_str"]+" "+msg["time"])
+				task_string.push("       due: "+msg["date_str"]+" "+msg["time"])
 				if msg["status"]?
-					task_string.push("\n      status: `"+msg["status"]+"`")
+					task_string.push("\n       status: `"+msg["status"]+"`")
 				else
-					task_string.push("\n      status: `"+empty_status+"`")
+					task_string.push("\n       status: `"+empty_status+"`")
 			return task_string
 
 	getItems: (user_id) => return @robot.brain.data.todos[user_id] or []
