@@ -533,7 +533,7 @@ class Todos
 			return
 		else
 			item = items[task_number-1]
-			item.status = "C  "
+			item.status = "complete"
 			@robot.brain.data.todos[user.id].splice(task_number - 1, 1,item)
 
 		message = "Task status updated.\n\n Task Number: #{task_number}\n Date: #{item.date_str}\n Time: #{item.time}\n Status: Complete\n Description: #{item.description}"
@@ -1150,7 +1150,7 @@ class Todos
 			desc_length = 0
 			note_length = 0
 			empty_date = " "
-			empty_status = "P"
+			empty_status = "pending"
 			empty_desc = " "
 			empty_note = " "
 			if msg["description"]?
@@ -1159,9 +1159,9 @@ class Todos
 				task_string.push("*"+index+".  "+msg["description"]+"*\n")
 				task_string.push("      due: "+msg["date_str"]+" "+msg["time"])
 				if msg["status"]?
-					task_string.push("\n      status: "+msg["status"])
+					task_string.push("\n      status: `"+msg["status"]+"`")
 				else
-					task_string.push("\n      status: "+empty_status)
+					task_string.push("\n      status: `"+empty_status+"`")
 			return task_string
 
 	getItems: (user_id) => return @robot.brain.data.todos[user_id] or []
